@@ -48,28 +48,31 @@ using namespace std;
 //
 // The final solution is the balance at S[n-1], since we will never want to buy
 // in the last day.
-int maxProfit(std::vector<int> P, int C) {
+int maxProfit(const vector<int> &P, int C) {
     int n = P.size();
-    std::vector<int> B(n);
-    std::vector<int> S(n);
+    vector<int> B(n);
+    vector<int> S(n);
 
     B[0] = -P[0] - C;
     S[0] = 0;
 
     for (int i = 1; i < n; i++) {
-        B[i] = std::max(B[i - 1], S[i - 1] - P[i] - C);
-        S[i] = std::max(S[i - 1], B[i - 1] + P[i]);
+        B[i] = max(B[i - 1], S[i - 1] - P[i] - C);
+        S[i] = max(S[i - 1], B[i - 1] + P[i]);
     }
 
     return S[n - 1];
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N, C;
     cin >> N;
     cin >> C;
 
-    std::vector<int> P(N);
+    vector<int> P(N);
     for (int i = 0; i < N; i++) cin >> P[i];
 
     cout << maxProfit(P, C) << "\n";

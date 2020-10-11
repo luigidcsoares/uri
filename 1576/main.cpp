@@ -8,7 +8,7 @@ struct Building {
     int l, h, r;
 };
 
-std::vector<int> &merge(std::vector<int> &L, std::vector<int> &R) {
+vector<int> &merge(vector<int> &L, vector<int> &R) {
     int n = L.size();
     int m = R.size();
     auto S = new vector<int>();
@@ -38,7 +38,7 @@ std::vector<int> &merge(std::vector<int> &L, std::vector<int> &R) {
             r += 2;
         }
 
-        int h = std::max(hl, hr);
+        int h = max(hl, hr);
         if (s == 0 || (*S)[s - 1] != h) {
             S->push_back(x);
             S->push_back(h);
@@ -67,10 +67,10 @@ std::vector<int> &merge(std::vector<int> &L, std::vector<int> &R) {
 // building into a skyline. Thus, we can assume we know how to solve
 // subproblems of size n/2, and then we merge the two skylines. The
 // implementation is quite similar to the one for mergesort.
-std::vector<int> &skyline(const std::vector<Building> &V, int p, int r) {
+vector<int> &skyline(const vector<Building> &V, int p, int r) {
     if (p == r) {
         auto [l, h, r] = V[p];
-        auto S = new std::vector<int>{l, h, r, 0};
+        auto S = new vector<int>{l, h, r, 0};
         return *S;
     }
 
@@ -82,7 +82,10 @@ std::vector<int> &skyline(const std::vector<Building> &V, int p, int r) {
 }
 
 int main() {
-    std::vector<Building> V;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    vector<Building> V;
     int l, h, r;
 
     while (cin >> l) {

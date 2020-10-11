@@ -14,13 +14,16 @@ int maxAmount(int *W, int *C, int n, int k) {
             if (wi > j)
                 M[i][j] = M[i - 1][j];
             else
-                M[i][j] = std::max(M[i - 1][j], M[i - 1][j - wi] + ci);
+                M[i][j] = max(M[i - 1][j], M[i - 1][j - wi] + ci);
         }
     }
     return M[n][k];
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
     while (cin >> n) {
         // The maximum capacity of the professor's lab.

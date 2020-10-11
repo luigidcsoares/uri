@@ -57,7 +57,8 @@ long long subsetSum(long long *A, int n) {
 }
 
 int main() {
-    ios_base ::sync_with_stdio(false);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 
     int t;
     cin >> t;

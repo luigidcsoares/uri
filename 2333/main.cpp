@@ -70,10 +70,13 @@ int maxSum(int *A, int n) {
         else
             suffix = 0;
     }
-    return std::max(max1, max2);
+    return max(max1, max2);
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
     cin >> n;
 

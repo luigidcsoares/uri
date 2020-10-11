@@ -8,14 +8,14 @@ using namespace std;
 
 struct Frog {
     // List of possible locations that the frog can be/jump to.
-    std::vector<int> L;
+    vector<int> L;
     // The maximum size of a short jump.
     int X;
     // The maximum size of a long jump.
     int Y;
 };
 
-const long Inf = std::numeric_limits<int>::max();
+const long Inf = numeric_limits<int>::max();
 long minJumps(Frog &F) {
     int n = F.L.size();
     // S[j][0] is the best solution for the subproblem 0..j, considering that j
@@ -46,18 +46,21 @@ long minJumps(Frog &F) {
         while (y < j - 1 && S[y][0] == Inf) y++;
         // When considering a short jump to j, the previous jump does not
         // matter. Thus, we consider the minimum between the solutions.
-        int min = std::min(S[x][0], S[x][1]);
-        if (min < Inf && F.L[x] + F.X >= F.L[j]) S[j][0] = min + 1;
+        int m = min(S[x][0], S[x][1]);
+        if (m < Inf && F.L[x] + F.X >= F.L[j]) S[j][0] = m + 1;
         // For a long jump, the previous cannot have been a long. In this case,
         // we only consider the solution for reaching y with a short jump.
         if (S[y][0] < Inf && F.L[y] + F.Y >= F.L[j]) S[j][1] = S[y][0] + 1;
     }
     // The best solution for the problem 0..n - 1 is the minimum between the
     // two solutions (reaching n - 1 with a short or a long jump).
-    return std::min(S[n - 1][0], S[n - 1][1]);
+    return min(S[n - 1][0], S[n - 1][1]);
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N, M;
     cin >> N;
     cin >> M;
