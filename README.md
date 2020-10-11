@@ -2,6 +2,7 @@
 
 ### Accepted :)
 
+- [Fibonacci, How Many Calls? (1029)](https://www.urionlinejudge.com.br/judge/en/problems/view/1029)
 - [The Skyline Problem (1576)](https://www.urionlinejudge.com.br/judge/en/problems/view/1576)
 - [Crowded Elevator (1611)](https://www.urionlinejudge.com.br/judge/en/problems/view/1611)
 - [Subset Sum (1690)](https://www.urionlinejudge.com.br/judge/en/problems/view/1690)
