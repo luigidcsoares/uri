@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/luigi/dev/uri/3107",
+  "command": "/usr/bin/g++ -std=c++17 main.cpp",
+  "file": "/home/luigi/dev/uri/3107/main.cpp"
+}
+]
